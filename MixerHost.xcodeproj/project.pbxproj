@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08A26ECB13304D070042A29D /* EQ3Band.c in Sources */ = {isa = PBXBuildFile; fileRef = 08A26EC913304D070042A29D /* EQ3Band.c */; };
 		0A58F3D4111CB6B50075A94F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A58F3D3111CB6B50075A94F /* AudioToolbox.framework */; };
 		0A63D1C011ECEE0400686627 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A63D1BC11ECEE0400686627 /* MainWindow.xib */; };
 		0A63D1C111ECEE0400686627 /* MixerHostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A63D1BE11ECEE0400686627 /* MixerHostViewController.xib */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08A26EC913304D070042A29D /* EQ3Band.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = EQ3Band.c; sourceTree = "<group>"; };
+		08A26ECA13304D070042A29D /* EQ3Band.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EQ3Band.h; sourceTree = "<group>"; };
 		0A58F3D3111CB6B50075A94F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		0A63D1BD11ECEE0400686627 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = MainWindow.xib; sourceTree = "<group>"; };
 		0A63D1BF11ECEE0400686627 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = MixerHostViewController.xib; sourceTree = "<group>"; };
@@ -78,6 +81,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				08A26EC913304D070042A29D /* EQ3Band.c */,
+				08A26ECA13304D070042A29D /* EQ3Band.h */,
 				1D3623240D0F684500981E51 /* MixerHostAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MixerHostAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* MixerHostViewController.h */,
@@ -253,6 +258,7 @@
 				1D3623260D0F684500981E51 /* MixerHostAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* MixerHostViewController.m in Sources */,
 				0AFAF1E0111B982200B42D9F /* MixerHostAudio.m in Sources */,
+				08A26ECB13304D070042A29D /* EQ3Band.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

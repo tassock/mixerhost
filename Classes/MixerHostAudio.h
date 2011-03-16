@@ -48,6 +48,7 @@ Copyright (C) 2010 Apple Inc. All Rights Reserved.
 
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import "EQ3Band.h"
 
 #define NUM_FILES 2
 
@@ -60,6 +61,7 @@ typedef struct {
     UInt32               sampleNumber;       // the next audio sample to play
     AudioUnitSampleType  *audioDataLeft;     // the complete left (or mono) channel of audio data read from an audio file
     AudioUnitSampleType  *audioDataRight;    // the complete right channel of audio data read from an audio file
+    EQSTATE              eqState;
     
 } soundStruct, *soundStructPtr;
 

@@ -109,13 +109,19 @@ static OSStatus inputRenderCallback (
     // Get the sample number, as an index into the sound stored in memory,
     //    to start reading data from.
     UInt32 sampleNumber = soundStructPointerArray[inBusNumber].sampleNumber;
+    
+    EQSTATE eq = soundStructPointerArray[inBusNumber].eqState;
 
     // Fill the buffer or buffers pointed at by *ioData with the requested number of samples 
     //    of audio from the sound stored in memory.
     for (UInt32 frameNumber = 0; frameNumber < inNumberFrames; ++frameNumber) {
 
-        outSamplesChannelLeft[frameNumber]                 = dataInLeft[sampleNumber];
-        if (isStereo) outSamplesChannelRight[frameNumber]  = dataInRight[sampleNumber];
+        // Get EQ Value
+        double dataLeft = dataInLeft[sampleNumber];
+        double eqVal = do_3band(&eq, dataLeft );
+        
+        outSamplesChannelLeft[frameNumber]                 = eqVal; //dataInLeft[sampleNumber];
+        if (isStereo) outSamplesChannelRight[frameNumber]  = eqVal; //dataInRight[sampleNumber];
         
         sampleNumber++;
 
@@ -353,6 +359,14 @@ void audioRouteChangeListenerCallback (
 - (void) readAudioFilesIntoMemory {
 
     for (int audioFile = 0; audioFile < NUM_FILES; ++audioFile)  {
+        
+        // Set up EQ struct
+        EQSTATE *eq = &soundStructArray[audioFile].eqState;
+        init_3band_state(eq, 880, 5000, 44100);
+        eq->lg = 1.0; // Cut bass
+        eq->mg = 1.0; // Cut mid by 25%
+        eq->hg = 1.0; // Leave high band alone 
+        
     
         NSLog (@"readAudioFilesIntoMemory - file %i", audioFile);
         
