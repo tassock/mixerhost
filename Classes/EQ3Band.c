@@ -31,6 +31,7 @@
 //| Includes |
 // ----------
 
+#include <string.h> /* memset */
 #include <math.h>
 #include "EQ3Band.h"
 
@@ -57,7 +58,24 @@ void init_3band_state(EQSTATE* es, int lowfreq, int highfreq, int mixfreq)
 {
     // Clear state 
     
-    //memset(es,0,sizeof(EQSTATE));
+    memset(es,0,sizeof(EQSTATE));
+    
+    // Set filter defaults (in case memset didn't set them to 0)
+    
+    es->f1p0  = 0.0;
+    es->f1p1  = 0.0;
+    es->f1p2  = 0.0;
+    es->f1p3  = 0.0;
+    es->f2p0  = 0.0;
+    es->f2p1  = 0.0;
+    es->f2p2  = 0.0;
+    es->f2p3  = 0.0;
+    
+    // Set sample history defaults (in case memset didn't set them to 0)
+    
+    es->sdm1 = 0.0;
+    es->sdm2 = 0.0;
+    es->sdm3 = 0.0;
     
     // Set Low/Mid/High gains to unity
     
